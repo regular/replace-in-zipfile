@@ -60,8 +60,8 @@ module.exports = function replaceZipFile(magicData, fileData) {
       console.error('found magic file:', filename)
       patchMagicCDFH(e)
       let lh = makeLocalHeader(e)
-      process.stdout.write(lh.slice())
-      process.stdout.write(fileData)
+      this.queue(lh.slice())
+      this.queue(fileData)
       offset += lh.length + fileData.byteLength
     }
     return 46 + filenameLength + extraFiledLength + commentLength
@@ -114,7 +114,7 @@ module.exports = function replaceZipFile(magicData, fileData) {
       do {
         e = findEntry(o)
         if (e) {
-          o += processCDFH(e)
+          o += processCDFH.call(this, e)
           newEntries.push(e)
         }
       } while(e)
@@ -129,6 +129,7 @@ module.exports = function replaceZipFile(magicData, fileData) {
       let newEOCD = bufs.slice()
       newEOCD.writeUInt32LE(offset, 16)
       this.queue(newEOCD)
+      this.queue(null)
     }
   ))
 }

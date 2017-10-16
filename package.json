@@ -1,6 +1,6 @@
 {
   "name": "replace-in-zipfile",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Put a placeholder file into a zipfile and replace it with new content while streaming",
   "main": "index.js",
   "bin": {
