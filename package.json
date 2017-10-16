@@ -1,0 +1,29 @@
+{
+  "name": "replace-in-zipfile",
+  "version": "1.0.0",
+  "description": "Put a placeholder file into a zipfile and replace it with new content while streaming",
+  "main": "index.js",
+  "bin": {
+    "replace-in-zipfile": "bin/replace",
+    "make-magic": "bin/make-magic"
+  },
+  "scripts": {
+    "test": "cd test && ./test.sh"
+  },
+  "keywords": [
+    "zip",
+    "replace",
+    "stream",
+    "zipfile"
+  ],
+  "author": "Jan Bölsche <jan@lagomorph.de> (http://regular.codes)",
+  "license": "MIT",
+  "dependencies": {
+    "bl": "^1.2.1",
+    "concat-stream": "^1.6.0",
+    "crc": "^3.5.0",
+    "loner": "^1.0.0",
+    "through": "^2.3.8",
+    "throughout": "0.0.0"
+  }
+}
